@@ -37,6 +37,13 @@ Built for the **"Create your Agentic Future"** Hackathon, this project showcases
   - Hugging Face  for language generation
 - **Platform**: Replit (deployed app + development)
 - **GitHub**: SSH-authenticated, CI-ready
+---
+
+##  Running Locally
+
+> You’ll need Node.js + an `.env` file with:
+> - `HF_API_KEY=your_huggingface_key`
+> - `ETHERSCAN_API_KEY=your_etherscan_key`
 
 ---
 Why It Matters
