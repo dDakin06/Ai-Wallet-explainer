@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+  <head>
+    <title>AI Wallet Explainer</title>
+  </head>
+  <body>
+    <h1>AI Wallet Explainer</h1>
+    <p>Enter an Ethereum wallet address:</p>
+    <input type="text" id="wallet" placeholder="0x..." />
+    <button onclick="getExplanation()">Explain</button>
+    <pre id="output"></pre>
+
+    <script>
+      async function getExplanation() {
+        const wallet = document.getElementById("wallet").value;
+        document.getElementById("output").innerText = "Loading...";
+
+        // For now we’re still using placeholder data
+        const fakeTxns =
+          "This wallet swapped ETH for USDC on Uniswap and bought an NFT.";
+
+        try {
+          const response = await fetch("/explain", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              wallet: wallet,
+            }),
+          });
+
+          const data = await response.json();
+          document.getElementById("output").innerText = data.message;
+        } catch (err) {
+          document.getElementById("output").innerText = "Error: " + err.message;
+        }
+      }
+    </script>
+  </body>
+</html>
