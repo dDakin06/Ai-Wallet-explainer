@@ -28,7 +28,7 @@ Built for the **"Create your Agentic Future"** Hackathon, this project showcases
 
 ---
 
-## ⚙️ Tech Stack
+##  Tech Stack
 
 - **Frontend**: HTML, CSS, JavaScript (vanilla)
 - **Backend**: Node.js + Express
