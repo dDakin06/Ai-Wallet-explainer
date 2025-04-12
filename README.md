@@ -47,6 +47,6 @@ This project explores the future of agentic AI in Web3:
 - Builds trust by demystifying on-chain activity  
 ### 🚀 Live Demo
 
-Try it here: [AI Wallet Explainer Live](https://ai-wallet-explainer.danieldakin06.repl.co)
+Demo here : https://www.loom.com/share/a1a542ec5ea140fcac845f679b47a1a9?sid=314744e6-f3af-4b1c-9177-6eee7c130acd
 
 
