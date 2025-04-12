@@ -46,6 +46,8 @@ This project explores the future of agentic AI in Web3:
 - Wallets can become self-explaining agents  
 - Builds trust by demystifying on-chain activity  
 ### 🚀 Live Demo
+Try it yourself here -> https://29256a57-4ba2-444f-b31a-2cdd98f44c1f-00-18d48o8w1x4op.picard.replit.dev/
+
 
 Demo here : https://www.loom.com/share/a1a542ec5ea140fcac845f679b47a1a9?sid=314744e6-f3af-4b1c-9177-6eee7c130acd
 
