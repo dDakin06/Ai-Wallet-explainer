@@ -34,20 +34,19 @@ Built for the **"Create your Agentic Future"** Hackathon, this project showcases
 - **Backend**: Node.js + Express
 - **APIs**:
   - Etherscan (wallet data + balance)
-  - Hugging Face (`flan-t5-small`) for language generation
+  - Hugging Face  for language generation
 - **Platform**: Replit (deployed app + development)
 - **GitHub**: SSH-authenticated, CI-ready
 
 ---
+Why It Matters
+This project explores the future of agentic AI in Web3:
 
-##  Running Locally
+- AI can make blockchain data understandable  
+- Wallets can become self-explaining agents  
+- Builds trust by demystifying on-chain activity  
+### 🚀 Live Demo
 
-> You’ll need Node.js + an `.env` file with:
-> - `HF_API_KEY=your_huggingface_key`
-> - `ETHERSCAN_API_KEY=your_etherscan_key`
+Try it here: [AI Wallet Explainer Live](https://ai-wallet-explainer.danieldakin06.repl.co)
 
-```bash
-git clone git@github.com:dDakin06/Ai-Wallet-explainer.git
-cd Ai-Wallet-explainer
-npm install
-node index.mjs
+
