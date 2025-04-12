@@ -35,13 +35,28 @@ app.use(express.static("public"));
 app.get("/", (req, res) => {
   res.send("Backend is running ✅");
 });
+async function getWalletBalance(address) {
+  const url = `https://api.etherscan.io/api?module=account&action=balance&address=${address}&tag=latest&apikey=${process.env.ETHERSCAN_API_KEY}`;
+
+  const res = await fetch(url);
+  const data = await res.json();
+
+  if (data.status !== "1") {
+    throw new Error(data.message || "Failed to fetch balance");
+  }
+
+  const eth = parseFloat(data.result) / 1e18;
+  return eth.toFixed(4); // return balance in ETH, 4 decimal places
+}
 
 app.post("/explain", async (req, res) => {
   const { wallet } = req.body;
 
   try {
-    const txSummary = await getTransactionSummary(wallet);
-    console.log("Transaction Summary:", txSummary);
+    const [balance, txSummary] = await Promise.all([
+      getWalletBalance(wallet),
+      getTransactionSummary(wallet)
+    ]);
 
     const response = await fetch("https://api-inference.huggingface.co/models/google/flan-t5-small", {
       method: "POST",
@@ -51,9 +66,7 @@ app.post("/explain", async (req, res) => {
       },
       body: JSON.stringify({
         inputs: `Summarize the behavior of this Ethereum wallet: ${txSummary}`,
-        parameters: {
-          max_new_tokens: 100
-        }
+        parameters: { max_new_tokens: 100 }
       })
     });
 
@@ -63,7 +76,10 @@ app.post("/explain", async (req, res) => {
       return res.status(500).json({ error: data.error });
     }
 
-    res.json({ message: data[0].generated_text });
+    res.json({
+      message: data[0].generated_text,
+      balance: balance
+    });
 
   } catch (err) {
     res.status(500).json({ error: err.message });
